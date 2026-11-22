@@ -1,0 +1,372 @@
+[
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 0.0,
+    "trim_m": -0.07111,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "Bb3",
+    "valves": [],
+    "lip_frequency_hz": 238.91,
+    "blowing_pressure_pa": 5500
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 0.0,
+    "trim_m": -0.03737,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "C4",
+    "valves": [
+      1,
+      3
+    ],
+    "lip_frequency_hz": 273.7720903628441,
+    "blowing_pressure_pa": 5359
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 0.000114,
+    "trim_m": -0.05367,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "D4",
+    "valves": [
+      1,
+      2
+    ],
+    "lip_frequency_hz": 313.83014,
+    "blowing_pressure_pa": 5112
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 0.00016,
+    "trim_m": -0.06223,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "Eb4",
+    "valves": [
+      1
+    ],
+    "lip_frequency_hz": 333,
+    "blowing_pressure_pa": 5785
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 0.00018,
+    "trim_m": -0.0667,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "F4",
+    "valves": [],
+    "lip_frequency_hz": 370.18,
+    "blowing_pressure_pa": 7000
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 0.0,
+    "trim_m": -0.05963,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "G4",
+    "valves": [
+      1,
+      2
+    ],
+    "lip_frequency_hz": 415.52,
+    "blowing_pressure_pa": 5874
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 0.0,
+    "trim_m": -0.06103,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "A4",
+    "valves": [
+      2
+    ],
+    "lip_frequency_hz": 466.4,
+    "blowing_pressure_pa": 8780
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 0.0,
+    "trim_m": -0.05797,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "Bb4",
+    "valves": [],
+    "lip_frequency_hz": 512.78,
+    "blowing_pressure_pa": 6745
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 0.0,
+    "trim_m": -0.07142,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "C5",
+    "valves": [
+      1
+    ],
+    "lip_frequency_hz": 575.58,
+    "blowing_pressure_pa": 7229
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 0.0,
+    "trim_m": -0.08675,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "D5",
+    "valves": [],
+    "lip_frequency_hz": 646.06,
+    "blowing_pressure_pa": 9837
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 0.0,
+    "trim_m": -0.09558,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "Eb5",
+    "valves": [
+      1
+    ],
+    "lip_frequency_hz": 684.48,
+    "blowing_pressure_pa": 10184
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 0.0,
+    "trim_m": -0.115,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "F5",
+    "valves": [],
+    "lip_frequency_hz": 768.3,
+    "blowing_pressure_pa": 10915
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.44,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 3.5e-05,
+    "trim_m": -0.09688,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "G5",
+    "valves": [
+      1,
+      2
+    ],
+    "lip_frequency_hz": 865,
+    "blowing_pressure_pa": 11698
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.52,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 5e-05,
+    "trim_m": -0.09802,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "A5",
+    "valves": [
+      2
+    ],
+    "lip_frequency_hz": 959,
+    "blowing_pressure_pa": 13450
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 2.7e-05,
+    "trim_m": -0.08864,
+    "wave_speed_reserve": 1.66,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0
+    },
+    "note": "Bb5",
+    "valves": [],
+    "lip_frequency_hz": 1025.56,
+    "blowing_pressure_pa": 17289
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 2e-05,
+    "trim_m": -0.084,
+    "wave_speed_reserve": 2.2,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0,
+      "quality": 5.5,
+      "mass_product": 1.4
+    },
+    "note": "C6",
+    "valves": [],
+    "lip_frequency_hz": 1159,
+    "blowing_pressure_pa": 17700
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 2e-05,
+    "trim_m": -0.05719,
+    "wave_speed_reserve": 2.2,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0,
+      "quality": 6.5,
+      "mass_product": 1.45
+    },
+    "note": "D6",
+    "valves": [],
+    "lip_frequency_hz": 1292.12,
+    "blowing_pressure_pa": 18900
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 2e-05,
+    "trim_m": 0.0,
+    "wave_speed_reserve": 2.2,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0,
+      "quality": 7,
+      "mass_product": 1.43
+    },
+    "note": "Eb6",
+    "valves": [
+      1
+    ],
+    "lip_frequency_hz": 1378,
+    "blowing_pressure_pa": 19600
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 2e-05,
+    "trim_m": 0,
+    "wave_speed_reserve": 2.2,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0,
+      "quality": 8,
+      "mass_product": 1.42
+    },
+    "note": "F6",
+    "valves": [],
+    "lip_frequency_hz": 1531,
+    "blowing_pressure_pa": 20400
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 2e-05,
+    "trim_m": 0.0,
+    "wave_speed_reserve": 2.2,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0,
+      "quality": 9,
+      "mass_product": 1.4
+    },
+    "note": "G6",
+    "valves": [
+      2
+    ],
+    "lip_frequency_hz": 1693.5,
+    "blowing_pressure_pa": 19402
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 2e-05,
+    "trim_m": -0.00289,
+    "wave_speed_reserve": 2.2,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0,
+      "quality": 11,
+      "mass_product": 1.36
+    },
+    "note": "A6",
+    "valves": [],
+    "lip_frequency_hz": 1876,
+    "blowing_pressure_pa": 19936
+  },
+  {
+    "attack_s": 0.008,
+    "attack_boost": 0.34,
+    "attack_decay_s": 0.027,
+    "rest_y_m": 2e-05,
+    "trim_m": 0,
+    "wave_speed_reserve": 2.2,
+    "lip_parameters": {
+      "gap_cubic_per_m2": 80000.0,
+      "quality": 12,
+      "mass_product": 1.15
+    },
+    "note": "Bb6",
+    "valves": [],
+    "lip_frequency_hz": 1992,
+    "blowing_pressure_pa": 23000
+  }
+]

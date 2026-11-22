@@ -19,6 +19,7 @@
 - [BB♭コントラバス・チューバ](TUBA_MODEL.md)
 - [ユーフォニアムとB♭管オフィクレイド](EUPHONIUM_OPHICLEIDE_MODEL.md)
 - [F/B♭ダブルホルンの運指、管形状とベル放射](DOUBLE_HORN_MODEL.md)
+- [フリューゲルホルンと7キー付きビューグル](FLUGELHORN_KEYED_BUGLE_MODEL.md)
 
 ## モデルの開発経緯
 

@@ -15,9 +15,12 @@ from render_trumpet_bell import build_load
 from render_tuba_scale import AUDIO_FS, GAP, MODEL, PITCH_RANGE, TRACE_FS, inspect
 from trumpet import C, RHO, ROOT, measure, np, signal
 
-NAMES = ('euphonium','ophicleide','horn')
-RANGES = dict(euphonium=(2,5),ophicleide=(1,4),horn=(1,5))
-SELECTOR = dict(euphonium='valves',ophicleide='open_holes',horn='valves')
+HIGH_BRASS = ('flugelhorn','keyed_bugle')
+NAMES = ('euphonium','ophicleide','horn',*HIGH_BRASS)
+RANGES = dict(euphonium=(2,5),ophicleide=(1,4),horn=(1,5),flugelhorn=(3,6),keyed_bugle=(3,6))
+SELECTOR = dict(euphonium='valves',ophicleide='open_holes',horn='valves',
+                flugelhorn='valves',keyed_bugle='open_holes')
+HIGH_BRASS_PITCH_RANGE = dict(min_hz=46.,max_hz=2450.)
 RADIAL_STEP = .006
 START_PILOT_S = .44
 NOTE_DURATION_S = 1.08
@@ -140,6 +143,7 @@ def solve(device,instrument,note,duration,initial_check=True):
             return saved['wave'],json.loads(str(saved['row']))
 
     began = time.perf_counter()
+    pitch_range = HIGH_BRASS_PITCH_RANGE if instrument in HIGH_BRASS else PITCH_RANGE
     load = instrument_load(instrument,grid,note)
     side_channels = {'record_toneholes':True} if len(holes) else {}
     with Run(device,grid,duration,lip_hz=note['lip_frequency_hz'],
@@ -151,7 +155,7 @@ def solve(device,instrument,note,duration,initial_check=True):
         if initial_check and duration>.8:
             run.until(START_PILOT_S)
             trace = run.history()
-            pilot = measure(trace,fs=TRACE_FS,start=.27,**PITCH_RANGE)
+            pilot = measure(trace,fs=TRACE_FS,start=.27,**pitch_range)
             frequency = pilot['frequency']
             if higher_harmonic(trace[round(.27*TRACE_FS):,0],TRACE_FS,frequency,note['target_hz']) is not None:
                 frequency *= round(note['target_hz']/frequency)
@@ -171,7 +175,7 @@ def solve(device,instrument,note,duration,initial_check=True):
     hole_sound = hole_pressure(flows,[float(hole[0]) for hole in holes],
                               float(grid['z'][-1]),float(grid['radius'][-1]))
     wave = signal.resample_poly(bell+hole_sound,AUDIO_FS,TRACE_FS)
-    row = inspect(note,trace,wave,duration,cup_area) | details
+    row = inspect(note,trace,wave,duration,cup_area,pitch_range=pitch_range) | details
     if row['audio_frequency_hz']==row['audio_period_frequency_hz'] and row['audio_frequency_hz']:
         a,b = [round(t*AUDIO_FS) for t in row['sustained_window_s']]
         period = row['audio_frequency_hz']
@@ -245,7 +249,8 @@ def render(instrument,preset,only,probe,initial_check, *, extended=False):
         sample_rate_hz=AUDIO_FS,bit_depth=16,channels=1,common_gain_fs_per_pa=gain,
         bell=('coupled spherical exterior with equivalent right-hand area load, receiver on axis at 1 m'
               if instrument=='horn' else 'coupled spherical exterior, receiver on axis 1 m beyond the bell'),
-        side_holes='free-field monopoles of the coupled side-hole flows' if instrument=='ophicleide' else None,
+        side_holes=('free-field monopoles of the coupled side-hole flows'
+                    if instrument in ('ophicleide','keyed_bugle') else None),
         max_sustained_pitch_error_cents=max(abs(row['cents']) for row in rows),notes=rows,
     )
     (out/'measurements.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')

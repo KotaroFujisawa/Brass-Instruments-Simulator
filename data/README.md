@@ -15,6 +15,10 @@
 | `ophicleide_gautrot_eu3590.csv` | Gautrot製B♭管バス・オフィクレイド（EU3590）の公表管径から再構成した管形状 |
 | `horn_bb_bore_fig734.csv` | *The Science of Brass Instruments* の図7.34から読み取ったAlexander製ダブルホルンB♭側の管形状 |
 | `alexander_8m_mouthpiece_reconstructed.csv` | Alexander 8Mの公称寸法と教科書のカップ曲線から再構成したマウスピース内面 |
+| `flugelhorn_cerveny_eu3664_fig7_20.csv` | 教科書の図7.20から読み取ったČervený製B♭管フリューゲルホルン（EU3664）の管体 |
+| `yamaha_fh11f4_reconstructed.csv` | Yamaha FH-11F4の公称リム内径とスロート径を使って再構成したUカップとバックボア |
+| `keyed_bugle_halari_eu907.csv` | 図7.20から読み取ったHalari製7キーC管（EU907）の管体と、同時代の標本寸法から補完したベル端 |
+| `keyed_bugle_toneholes_06872.csv` | 同時代の7キーC管（NMM 06872）の指穴位置と半径、および推定チムニー高 |
 | `model.json` | 初期のトランペットモデルのカップ深さと、単体マウスピースの校正に使った共鳴周波数 |
 | `performance.json` | 線形管体モデルによるトランペットの演奏設定 |
 | `performance_bidirectional.json` | CPUの双方向伝搬モデルによるトランペットの演奏設定 |
@@ -31,6 +35,8 @@
 | `performance_euphonium_pedal.json` | ユーフォニアムの4オクターブ版に追加するB♭1〜A2の7音の設定 |
 | `performance_ophicleide.json` | B♭1〜B♭4のオフィクレイドの唇、吹奏圧、キーで開ける側孔、管長補正 |
 | `performance_horn.json` | B♭1〜B♭5のダブルホルンの唇、吹奏圧、F管／B♭管の選択、バルブ、倍音次数、管長補正 |
+| `performance_flugelhorn.json` | B♭3〜B♭6のフリューゲルホルンのバルブ番号、唇、吹奏圧、アタック、有効管長の補正 |
+| `performance_keyed_bugle.json` | B♭3〜B♭6のキー付きビューグルの実音、記譜音、開孔番号、唇、吹奏圧、アタック、有効管長の補正 |
 | `sources.json` | 初期のトランペットの管体、マウスピースの再構成、唇モデルの出典 |
 | `nonlinear_sources.json` | 入射波を指定する非線形伝搬モデルの式と仮定 |
 | `sources_bidirectional.json` | CPUの双方向伝搬モデルの文献と仮定 |
@@ -38,6 +44,8 @@
 演奏設定の `target_hz` は目標周波数、`lip_frequency_hz` は唇の固有振動数、`blowing_pressure_pa` は吹奏圧、`rest_y_m` は静止時の開口の設定です。トランペットの `valves_semitones` は、押した各バルブが下げる公称半音数を並べたものです。チューバの `valves` はバルブ番号1〜4を記録し、第1〜4バルブは順に2、1、3、5半音下げる設定です。`tuning_m` と `trim_m` は有効管長の補正量です。トロンボーンの `--louder` 版の吹奏圧の倍率はレンダラーに定義しています。
 
 オフィクレイドの `open_holes` は開く側孔の番号を記録します。ダブルホルンの `side` は `F` または `Bb` です。`note` は実音、`written_note` はF調ホルンの記譜音です。形状を補った箇所や運指の根拠は各解説に記載しています。[ユーフォニアムとオフィクレイド](../docs/ja/EUPHONIUM_OPHICLEIDE_MODEL.md) · [ダブルホルン](../docs/ja/DOUBLE_HORN_MODEL.md)
+
+フリューゲルホルンの `valves` は使用するバルブ番号です。キー付きビューグルの `open_holes` は実際に開く指穴の番号で、ベル側から1〜7番です。第1孔は通常開で、キーを操作して閉じます。B♭5を超える7音の運指は計算上の拡張です。[フリューゲルホルンとキー付きビューグルの形状・運指](../docs/ja/FLUGELHORN_KEYED_BUGLE_MODEL.md)
 
 管体の断面は図から読み取って近似しました。マウスピースの形状は、資料にある輪郭、長さ、容積、共鳴周波数を使って決めています。演奏設定は、それぞれのモデルで目標音を発音するように調整しています。
 
