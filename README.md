@@ -2,7 +2,7 @@
 
 [日本語ドキュメント一覧](docs/ja/README.md) · [モデルの方程式と仮定](docs/models.md) · [参考文献](docs/references.md) · [形状データと演奏設定](data/README.md)
 
-トランペット、トロンボーン、チューバ、ユーフォニアム、オフィクレイド、F／B♭ダブルホルンの音を物理モデルで合成します。Adachi–Satoの2自由度唇モデルをマウスピースと管内音場に連成します。CUDAソルバーは、曲がった管を中心線に沿って展開した軸対称の管内で非線形な波の伝搬を解きます。ベルで放射された音を求めると同時に、管内へ戻る反射波が唇の振動に及ぼす影響も計算します。
+トランペット、トロンボーン、チューバ、ユーフォニアム、オフィクレイド、F／B♭ダブルホルン、フリューゲルホルン、キー付きビューグルの音を物理モデルで合成します。Adachi–Satoの2自由度唇モデルをマウスピースと管内音場に連成します。CUDAソルバーは、曲がった管を中心線に沿って展開した軸対称の管内で非線形な波の伝搬を解きます。ベルで放射された音を求めると同時に、管内へ戻る反射波が唇の振動に及ぼす影響も計算します。
 
 ## 音声サンプル
 
@@ -36,6 +36,14 @@ https://github.com/user-attachments/assets/0ddcb7b4-f377-4d7e-b65f-2890d1c7e8ff
 
 https://github.com/user-attachments/assets/63ab0943-60c4-411d-bc52-bcacbac094dd
 
+#### フリューゲルホルン（実音B♭3〜B♭6）
+
+https://github.com/user-attachments/assets/115cac3d-415c-421b-ac8e-f114999a2f78
+
+#### キー付きビューグル（実音B♭3〜B♭6）
+
+https://github.com/user-attachments/assets/2862e48d-767d-4d86-9b0e-985f30063a8f
+
 ### 音源と測定結果
 
 | 音声 | 実音域 | 測定結果 |
@@ -48,6 +56,8 @@ https://github.com/user-attachments/assets/63ab0943-60c4-411d-bc52-bcacbac094dd
 | [ユーフォニアム](samples/euphonium_Bb1_Bb5_major_f_strong_attack.wav) | B♭1〜B♭5 | [音程と放射音圧](docs/results/euphonium_Bb1_Bb5_verified_measurements.json) |
 | [B♭管オフィクレイド](samples/ophicleide_Bb1_Bb4_major_f_strong_attack.wav) | B♭1〜B♭4 | [音程と指穴からの放射](docs/results/ophicleide_verified_measurements.json) |
 | [F／B♭ダブルホルン](samples/horn_Bb1_Bb5_major_f_strong_attack.wav) | B♭1〜B♭5 | [音程と管の選択](docs/results/horn_verified_measurements.json) |
+| [フリューゲルホルン](samples/flugelhorn_Bb3_Bb6_major_f_strong_attack.wav) | B♭3〜B♭6 | [音程・音圧・発音時刻](docs/results/flugelhorn_verified_measurements.json) |
+| [キー付きビューグル](samples/keyed_bugle_Bb3_Bb6_major_f_strong_attack.wav) | B♭3〜B♭6 | [音程・音圧・開孔音](docs/results/keyed_bugle_verified_measurements.json) |
 
 トロンボーンのアタックをさらに強めた版では、15%増圧の版から持続時の吹奏圧をさらに25%上げ、吹奏圧の立ち上がりを12 msから6.5 msに短縮しました。ベル正面1 mの放射音圧レベルは、22音の中央値で持続部が+3.8 dB、音が立ち上がってから最初の50 msが+6.0 dBでした。
 
@@ -108,6 +118,17 @@ python src/render_horn_scale.py
 ```
 
 WAVと各音の測定結果はそれぞれ `output/euphonium_extended/`、`output/ophicleide_axisymmetric/`、`output/horn_axisymmetric/` に保存されます。[ユーフォニアムとオフィクレイドのモデル](docs/ja/EUPHONIUM_OPHICLEIDE_MODEL.md) · [ダブルホルンのモデル](docs/ja/DOUBLE_HORN_MODEL.md)
+
+## フリューゲルホルンとキー付きビューグルの音階を再生成する
+
+実音B♭3〜B♭6をフォルテで、アタックを強めて計算します。ビューグルでは開けた指穴での反射と放射も扱います。実音B♭5を超える7音は、当時の運指表の音域を上に拡張した試算です。
+
+```sh
+python src/render_euphonium_ophicleide.py flugelhorn
+python src/render_euphonium_ophicleide.py keyed_bugle --no-initial-check
+```
+
+WAVと各音の測定結果は `output/flugelhorn_axisymmetric/` と `output/keyed_bugle_axisymmetric/` に保存されます。[管形状、運指と測定結果](docs/ja/FLUGELHORN_KEYED_BUGLE_MODEL.md)
 
 ## CPUモデルを実行する
 

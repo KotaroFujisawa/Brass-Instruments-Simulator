@@ -142,5 +142,21 @@
     "frames": 1656000,
     "duration_s": 34.5,
     "sha256": "01cb2e49a7f1e093b374894260952ce453af6b098199e8d13c56685a3d55c245"
+  },
+  "flugelhorn_Bb3_Bb6_major_f_strong_attack.wav": {
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "bit_depth": 16,
+    "frames": 1262880,
+    "duration_s": 26.31,
+    "sha256": "baa15b98f65810ecae2b9cccf01915a8c8164f34dace64a3f60d9a025a70a738"
+  },
+  "keyed_bugle_Bb3_Bb6_major_f_strong_attack.wav": {
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "bit_depth": 16,
+    "frames": 1262880,
+    "duration_s": 26.31,
+    "sha256": "63078266e3810c15b3ca669b96473fd45125e0637a0fae7f1f9bb59b41890d67"
   }
 }

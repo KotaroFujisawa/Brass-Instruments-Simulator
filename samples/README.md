@@ -18,6 +18,8 @@
 | サンプル | 実音の音域 | 長さ | リポジトリのルートで実行する再生成コマンド |
 | --- | --- | --- | --- |
 | [York トランペットと Bach 5C](trumpet_Bach5C_Bb3_Bb6_major_f_strong_attack.wav) | B♭3–B♭6 | 26.31 秒 | `python src/render_trumpet_bach5c.py` |
+| [フリューゲルホルン](flugelhorn_Bb3_Bb6_major_f_strong_attack.wav) | B♭3〜B♭6 | 26.31 秒 | `python src/render_euphonium_ophicleide.py flugelhorn` |
+| [キー付きビューグル](keyed_bugle_Bb3_Bb6_major_f_strong_attack.wav) | B♭3〜B♭6 | 26.31 秒 | `python src/render_euphonium_ophicleide.py keyed_bugle --no-initial-check` |
 | [Conn 8H トロンボーンと Wick 5AL](trombone_5AL_Bb2_Bb5_major_f_strong_attack.wav) | B♭2–B♭5 | 26.31 秒 | `python src/render_trombone_detailed_scale.py` |
 | [5AL トロンボーンの音量を上げたフォルテ](trombone_5AL_Bb2_Bb5_major_louder_f_strong_attack.wav) | B♭2–B♭5 | 26.31 秒 | `python src/render_trombone_detailed_scale.py --louder` |
 | [5AL トロンボーンのアタックを強めた音階](trombone_5AL_Bb2_Bb5_major_stronger_f_strong_attack.wav) | B♭2–B♭5 | 26.31 秒 | `python src/render_trombone_detailed_scale.py --stronger` |

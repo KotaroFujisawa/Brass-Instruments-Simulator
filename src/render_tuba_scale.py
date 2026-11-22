@@ -54,10 +54,10 @@ def solver_signature():
     return hashlib.sha256(b''.join((ROOT/'src'/name).read_bytes() for name in names)).digest()
 
 
-def inspect(note, trace, wave, duration, cup_area):
+def inspect(note, trace, wave, duration, cup_area, *, pitch_range=PITCH_RANGE):
     end = duration-.18 if duration>.8 else duration
     start = max(.18,end-.24)
-    audio = measure_audio(wave,start,end,**PITCH_RANGE)
+    audio = measure_audio(wave,start,end,**pitch_range)
     pitch = period = audio['frequency']
     odd_to_even = None
     if .48<pitch/note['target_hz']<.52:
