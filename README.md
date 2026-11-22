@@ -36,6 +36,14 @@ https://github.com/user-attachments/assets/0ddcb7b4-f377-4d7e-b65f-2890d1c7e8ff
 
 https://github.com/user-attachments/assets/63ab0943-60c4-411d-bc52-bcacbac094dd
 
+#### フリューゲルホルン（実音B♭3〜B♭6）
+
+https://github.com/user-attachments/assets/115cac3d-415c-421b-ac8e-f114999a2f78
+
+#### キー付きビューグル（実音B♭3〜B♭6）
+
+https://github.com/user-attachments/assets/2862e48d-767d-4d86-9b0e-985f30063a8f
+
 ### 音源と測定結果
 
 | 音声 | 実音域 | 測定結果 |
