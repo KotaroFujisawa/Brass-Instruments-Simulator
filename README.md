@@ -61,7 +61,21 @@ https://github.com/user-attachments/assets/63ab0943-60c4-411d-bc52-bcacbac094dd
 - [唇と吹奏圧を調整した音階（11.10秒）](samples/serpent_C2_C4_tuned.wav)
 - [E3の吹奏圧比較（2.22秒）](samples/serpent_E3_pressure_comparison.wav)
 
-E3の比較では、1.45、2.15、2.85 kPaの順に再生します。最初の1.45 kPaはほぼ無音です。
+E3の比較では、持続吹奏圧を1.45、2.15、2.85 kPaの順に変えます。最初の1.45 kPaはほぼ無音です。
+
+### 調整前の音階
+
+https://github.com/user-attachments/assets/46803d0c-8009-4dd7-992f-a5e1311bebd1
+
+### 調整後の音階
+
+https://github.com/user-attachments/assets/3d5e8b3f-0058-40b5-afe3-2096bc640c5a
+
+### E3の吹奏圧比較
+
+https://github.com/user-attachments/assets/b764cb46-8d4d-4376-a5be-3d75a0e1d289
+
+### セルパンを再計算する
 
 ```sh
 python src/analyze_serpent.py
