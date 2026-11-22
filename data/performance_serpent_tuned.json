@@ -1,0 +1,213 @@
+[
+  {
+    "note": "C2",
+    "lip_frequency_hz": 57.6,
+    "blowing_pressure_pa": 1950,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {},
+    "open_holes": [],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "D2",
+    "lip_frequency_hz": 82.22613501687411,
+    "blowing_pressure_pa": 2850.0,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {},
+    "open_holes": [
+      6
+    ],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "E2",
+    "lip_frequency_hz": 83.6,
+    "blowing_pressure_pa": 2540,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {},
+    "open_holes": [
+      5,
+      6
+    ],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "F2",
+    "lip_frequency_hz": 86,
+    "blowing_pressure_pa": 2290,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {},
+    "open_holes": [
+      4,
+      5,
+      6
+    ],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "G2",
+    "lip_frequency_hz": 94,
+    "blowing_pressure_pa": 2300,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {},
+    "open_holes": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "A2",
+    "lip_frequency_hz": 104.5,
+    "blowing_pressure_pa": 2450,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {},
+    "open_holes": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "B2",
+    "lip_frequency_hz": 110.3,
+    "blowing_pressure_pa": 3420,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {},
+    "open_holes": [],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "C3",
+    "lip_frequency_hz": 128,
+    "blowing_pressure_pa": 2400,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {},
+    "open_holes": [],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "D3",
+    "lip_frequency_hz": 157,
+    "blowing_pressure_pa": 2670,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {
+      "quality": 6.8,
+      "gap_frequency_ratio": 0.95
+    },
+    "open_holes": [
+      6
+    ],
+    "opening_fractions": [
+      [
+        6,
+        0.42
+      ]
+    ],
+    "attack_s": 0.034,
+    "attack_boost": 0,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "E3",
+    "lip_frequency_hz": 159.2,
+    "blowing_pressure_pa": 3050,
+    "rest_y_m": 5.5e-05,
+    "lip_parameters": {
+      "quality": 6
+    },
+    "open_holes": [
+      5,
+      6
+    ],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "F3",
+    "lip_frequency_hz": 170.5,
+    "blowing_pressure_pa": 2700,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {},
+    "open_holes": [
+      4,
+      5,
+      6
+    ],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "G3",
+    "lip_frequency_hz": 201,
+    "blowing_pressure_pa": 2700,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {},
+    "open_holes": [],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "A3",
+    "lip_frequency_hz": 229.5,
+    "blowing_pressure_pa": 3250,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {
+      "quality": 7
+    },
+    "open_holes": [
+      1,
+      2,
+      3
+    ],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "B3",
+    "lip_frequency_hz": 245,
+    "blowing_pressure_pa": 3450,
+    "rest_y_m": 4.8e-05,
+    "lip_parameters": {},
+    "open_holes": [],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  },
+  {
+    "note": "C4",
+    "lip_frequency_hz": 276.57464870342955,
+    "blowing_pressure_pa": 2850.0,
+    "rest_y_m": 1.6e-05,
+    "lip_parameters": {},
+    "open_holes": [],
+    "attack_s": 0.012,
+    "attack_boost": 0.18,
+    "attack_decay_s": 0.028
+  }
+]

@@ -1,4 +1,28 @@
 {
+  "serpent_C2_C4_untuned.wav": {
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "bit_depth": 16,
+    "frames": 532800,
+    "duration_s": 11.1,
+    "sha256": "bb39cd877252c1d4f0127bcc7dfd5d3988a25d887c6231d70f0dd60b4c04b087"
+  },
+  "serpent_C2_C4_tuned.wav": {
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "bit_depth": 16,
+    "frames": 532800,
+    "duration_s": 11.1,
+    "sha256": "7cb681c4e9103ac27aadb2f9122a642be6c9f153b0f34c7d772e2957f36bd17c"
+  },
+  "serpent_E3_pressure_comparison.wav": {
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "bit_depth": 16,
+    "frames": 106560,
+    "duration_s": 2.22,
+    "sha256": "75e902afb5b1d7c9b473fb29f8f244cbeb46f0d7350957e49fa0fe1b40a27e6b"
+  },
   "BBb_tuba_Bb1_Bb4_major_f_strong_attack.wav": {
     "sample_rate_hz": 48000,
     "channels": 1,
