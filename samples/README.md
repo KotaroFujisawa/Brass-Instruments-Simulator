@@ -2,7 +2,7 @@
 
 [測定結果](../docs/results/README.md)
 
-すべての WAV は 48 kHz、16 bit、モノラルです。音階は実音の変ロ長調（B♭メジャー）で、A4 = 440 Hz を基準に低い音から順に演奏します。
+すべての WAV は 48 kHz、16 bit、モノラルです。変ロ長調（B♭メジャー）とセルパンのハ長調（Cメジャー）の音階は、A4 = 440 Hz を基準に低い音から順に演奏します。
 
 ## 4オクターブの音階
 
@@ -34,6 +34,16 @@
 | [強奏版と強いアタック版を同じゲインで聴き比べ](trombone_5AL_stronger_forte_before_after.wav) | 9.18 秒 | B♭2、B♭4、B♭5の順に、各音を強奏版、強いアタック版の順で再生します。両版を音圧の尺度に戻してから連結し、ファイル全体に共通のゲインを適用しています。 |
 
 シミュレーションの全音階 WAV は、各ファイル内の全音に共通のゲインを適用しています。ファイル間の音圧を比べる際は、[測定結果](../docs/results/README.md)に記録したゲインを使って換算してください。
+
+## セルパンの音階とE3の吹奏圧比較
+
+| サンプル | 実音の音域 | 長さ | リポジトリのルートで実行する再生成コマンド |
+| --- | --- | --- | --- |
+| [調整前のCメジャー音階](serpent_C2_C4_untuned.wav) | C2〜C4 | 11.10秒 | `python src/render_serpent.py` |
+| [調整後のCメジャー音階](serpent_C2_C4_tuned.wav) | C2〜C4 | 11.10秒 | `python src/render_serpent.py --preset data/performance_serpent_tuned.json` |
+| [E3の吹奏圧比較](serpent_E3_pressure_comparison.wav) | E3の運指 | 2.22秒 | `python src/render_serpent.py` |
+
+セルパンでは1音の計算時間は0.65秒で、その後に90 msの無音を入れます。E3の比較は1.45、2.15、2.85 kPaの順です。最初の条件ではほぼ無音です。[試聴](../README.md#セルパンの試聴と再計算) · [音程と吹奏圧の測定結果](../docs/results/README.md#セルパンの共鳴と発音)
 
 ## 以前の音階
 

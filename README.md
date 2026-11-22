@@ -53,6 +53,24 @@ https://github.com/user-attachments/assets/63ab0943-60c4-411d-bc52-bcacbac094dd
 
 音階のWAVはファイルごとに一つの出力ゲインを適用しています。2つの演奏に同じゲインを適用した抜粋で、吹奏圧とアタックを変えたときの音圧差を確認できます。音階全体を試聴するためのピークを抑えた版も収録しています。 [同じゲインで聴き比べ](samples/trombone_5AL_stronger_forte_before_after.wav) · [音階全体の試聴版](samples/trombone_5AL_Bb2_Bb5_major_stronger_f_listening.wav) · [以前の音源・再生成コマンド・チェックサム](samples/README.md)
 
+## セルパンの試聴と再計算
+
+6孔のC管セルパンで、実音C2〜C4のCメジャー上行音階を比較します。調整後は15音すべてで持続発音し、14音が平均律の目標から±15セント以内に入りました。D3の持続部は約44セント低い結果です。
+
+- [調整前の音階（11.10秒）](samples/serpent_C2_C4_untuned.wav)
+- [唇と吹奏圧を調整した音階（11.10秒）](samples/serpent_C2_C4_tuned.wav)
+- [E3の吹奏圧比較（2.22秒）](samples/serpent_E3_pressure_comparison.wav)
+
+E3の比較では、1.45、2.15、2.85 kPaの順に再生します。最初の1.45 kPaはほぼ無音です。
+
+```sh
+python src/analyze_serpent.py
+python src/render_serpent.py
+python src/render_serpent.py --preset data/performance_serpent_tuned.json
+```
+
+[モデルと実行手順](docs/ja/SERPENT_MODEL.md) · [共鳴と音程のグラフ](docs/figures/serpent_intonation.png) · [調整前とE3の測定結果](docs/results/serpent_measurements.json) · [調整後の測定結果](docs/results/serpent_tuned_measurements.json)
+
 ## インストール
 
 開発にはPython 3.12を使用しました。NumPy、SciPy、Numba、Matplotlibが必要です。リポジトリのルートからコマンドを実行します。

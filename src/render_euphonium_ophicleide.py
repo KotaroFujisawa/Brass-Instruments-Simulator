@@ -78,10 +78,13 @@ def signature(instrument):
 def make_grid(instrument,note):
     model = instrument_module(instrument)
     mesh = getattr(model,f'refined_{instrument}_mesh')
-    fingers = (tuple(note[SELECTOR[instrument]]),)
+    selector = 'open_holes' if instrument=='serpent' else SELECTOR[instrument]
+    fingers = (tuple(note[selector]),)
     if instrument=='horn':
         fingers = (note['side'],)+fingers
-    return mesh(*fingers,tuning=note['trim_m'],
+    partial_holes = {'opening_fractions':note['opening_fractions']} if (
+        instrument=='serpent' and note.get('opening_fractions')) else {}
+    return mesh(*fingers,tuning=note['trim_m'],**partial_holes,
                 axial_scale=note.get('axial_scale',1.),dr=note.get('radial_spacing_m',RADIAL_STEP))
 
 

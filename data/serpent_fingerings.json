@@ -1,0 +1,38 @@
+{
+  "source": {
+    "title": "Christopher Monk Instruments – fingering chart for serpent in C",
+    "url": "https://www.jeremywest.co.uk/uploads/1/4/6/0/14606206/fingering_chart_serpent_in_c.pdf",
+    "reference_a4_hz": 440,
+    "notes": "6孔のC管の運指表から、実音C2〜C4の範囲を読み取った。穴番号1〜6は唇からベルに向かう順で、表と同じ。",
+    "register_notes": "registerは想定した発音域。全閉時はC2を第1域、G3を第3域とし、開孔時には各音域の代表を示す。実際のインピーダンスのピーク番号と一対一に対応するとは限らない。",
+    "hole_state_notes": "open_holesは全開、half_open_holesは半閉の記号。optional_holesは表の括弧付きの穴。alternatesは表が分けて示した別運指。alternate_optional_holesはその別運指での括弧付きの穴。",
+    "textbook_comparison": "The Science of Brass Instruments 図4.96で扱うC管のE3も、同じベル側の2孔（この表の5・6）を開く運指。"
+  },
+  "notes": [
+    {"note": "C2", "midi": 36, "open_holes": [], "register": 1},
+    {"note": "C#2", "midi": 37, "open_holes": [], "half_open_holes": [6], "register": 1},
+    {"note": "D2", "midi": 38, "open_holes": [6], "register": 1},
+    {"note": "Eb2", "midi": 39, "open_holes": [5], "register": 1},
+    {"note": "E2", "midi": 40, "open_holes": [5, 6], "register": 1},
+    {"note": "F2", "midi": 41, "open_holes": [4, 5, 6], "register": 1},
+    {"note": "F#2", "midi": 42, "open_holes": [3, 5, 6], "register": 1},
+    {"note": "G2", "midi": 43, "open_holes": [3, 4, 5, 6], "register": 1},
+    {"note": "G#2", "midi": 44, "open_holes": [2, 4, 5, 6], "register": 1},
+    {"note": "A2", "midi": 45, "open_holes": [2, 3, 4, 5, 6], "register": 1},
+    {"note": "Bb2", "midi": 46, "open_holes": [1, 2, 3], "alternates": [[1, 2, 3, 4, 5, 6]], "register": 1},
+    {"note": "B2", "midi": 47, "open_holes": [], "register": 2},
+    {"note": "C3", "midi": 48, "open_holes": [], "register": 2},
+    {"note": "C#3", "midi": 49, "open_holes": [], "half_open_holes": [6], "register": 2},
+    {"note": "D3", "midi": 50, "open_holes": [6], "register": 2},
+    {"note": "Eb3", "midi": 51, "open_holes": [5], "register": 2},
+    {"note": "E3", "midi": 52, "open_holes": [5, 6], "register": 2},
+    {"note": "F3", "midi": 53, "open_holes": [4, 5, 6], "register": 2},
+    {"note": "F#3", "midi": 54, "open_holes": [3, 4, 5, 6], "optional_holes": [3, 4, 5, 6], "register": 2},
+    {"note": "G3", "midi": 55, "open_holes": [], "register": 3},
+    {"note": "G#3", "midi": 56, "open_holes": [3], "optional_holes": [1, 3], "register": 3},
+    {"note": "A3", "midi": 57, "open_holes": [2, 3, 4, 5, 6], "alternates": [[2, 3]], "alternate_optional_holes": [[1]], "register": 2},
+    {"note": "Bb3", "midi": 58, "open_holes": [1, 2, 3], "optional_holes": [4], "alternates": [[1, 2, 3, 4, 5, 6]], "register": 2},
+    {"note": "B3", "midi": 59, "open_holes": [], "register": 4},
+    {"note": "C4", "midi": 60, "open_holes": [], "register": 4}
+  ]
+}

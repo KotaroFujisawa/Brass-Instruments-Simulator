@@ -17,6 +17,7 @@
 - [トランペットのベル放射とテーパーの細分化](../trumpet_bell_exterior.md)
 - [Conn 8Hトロンボーンと吹奏圧・アタックの比較](TROMBONE_MODEL.md)
 - [BB♭コントラバス・チューバ](TUBA_MODEL.md)
+- [C管セルパンの管形状、運指と音程](SERPENT_MODEL.md)
 - [ユーフォニアムとB♭管オフィクレイド](EUPHONIUM_OPHICLEIDE_MODEL.md)
 - [F/B♭ダブルホルンの運指、管形状とベル放射](DOUBLE_HORN_MODEL.md)
 
