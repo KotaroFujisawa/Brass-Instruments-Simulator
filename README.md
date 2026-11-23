@@ -2,7 +2,7 @@
 
 [日本語ドキュメント一覧](docs/ja/README.md) · [モデルの方程式と仮定](docs/models.md) · [参考文献](docs/references.md) · [形状データと演奏設定](data/README.md)
 
-トランペット、トロンボーン、チューバ、ユーフォニアム、オフィクレイド、F／B♭ダブルホルン、フリューゲルホルン、キー付きビューグルの音を物理モデルで合成します。Adachi–Satoの2自由度唇モデルをマウスピースと管内音場に連成します。CUDAソルバーは、曲がった管を中心線に沿って展開した軸対称の管内で非線形な波の伝搬を解きます。ベルで放射された音を求めると同時に、管内へ戻る反射波が唇の振動に及ぼす影響も計算します。
+トランペット、トロンボーン、チューバ、ユーフォニアム、オフィクレイド、F／B♭ダブルホルン、フリューゲルホルン、キー付きビューグル、E♭テナーホルンの音を物理モデルで合成します。Adachi–Satoの2自由度唇モデルをマウスピースと管内音場に連成します。CUDAソルバーは、曲がった管を中心線に沿って展開した軸対称の管内で非線形な波の伝搬を解きます。ベルで放射された音を求めると同時に、管内へ戻る反射波が唇の振動に及ぼす影響も計算します。
 
 ## 音声サンプル
 
@@ -19,6 +19,12 @@ https://github.com/user-attachments/assets/651233dd-1de2-4166-8f5f-820ce01c32ef
 #### トロンボーン（Denis Wick 5AL、実音B♭2〜B♭5）
 
 https://github.com/user-attachments/assets/f14650f5-a03d-4423-8e90-08169da3e7cf
+
+#### E♭テナーホルン（実音B♭2〜B♭5）
+
+https://github.com/user-attachments/assets/ababc5de-ae98-4707-93d2-05f339e690c6
+
+[WAVを開く](samples/tenor_horn_Bb2_Bb5_major_f_strong_attack.wav) · [モデルの説明](docs/ja/TENOR_HORN_MODEL.md)
 
 #### BB♭チューバ（Yamaha BB-67C4、実音B♭1〜B♭4）
 
@@ -52,6 +58,7 @@ https://github.com/user-attachments/assets/2862e48d-767d-4d86-9b0e-985f30063a8f
 | [Conn 8Hトロンボーン、Denis Wick 5AL](samples/trombone_5AL_Bb2_Bb5_major_f_strong_attack.wav) | B♭2〜B♭5 | [基準のフォルテ](docs/results/trombone_5AL_Bb2_Bb5_measurements.json) |
 | [トロンボーン、吹奏圧を上げた版](samples/trombone_5AL_Bb2_Bb5_major_louder_f_strong_attack.wav) | B♭2〜B♭5 | [持続時の吹奏圧を15%増加](docs/results/trombone_5AL_Bb2_Bb5_louder_f_measurements.json) |
 | [トロンボーン、さらに吹奏圧とアタックを強めた版](samples/trombone_5AL_Bb2_Bb5_major_stronger_f_strong_attack.wav) | B♭2〜B♭5 | [音圧と発音時刻の比較](docs/results/trombone_5AL_Bb2_Bb5_stronger_f_measurements.json) |
+| [E♭テナーホルン（アルトホルン）](samples/tenor_horn_Bb2_Bb5_major_f_strong_attack.wav) | B♭2〜B♭5 | [音程・音圧・アタック](docs/results/tenor_horn_verified_measurements.json) |
 | [再構成したBB♭チューバ、Yamaha BB-67C4](samples/BBb_tuba_Bb1_Bb4_major_f_strong_attack.wav) | B♭1〜B♭4 | [音程・音圧・発音時刻](docs/results/BBb_tuba_Bb1_Bb4_measurements.json) |
 | [ユーフォニアム](samples/euphonium_Bb1_Bb5_major_f_strong_attack.wav) | B♭1〜B♭5 | [音程と放射音圧](docs/results/euphonium_Bb1_Bb5_verified_measurements.json) |
 | [B♭管オフィクレイド](samples/ophicleide_Bb1_Bb4_major_f_strong_attack.wav) | B♭1〜B♭4 | [音程と指穴からの放射](docs/results/ophicleide_verified_measurements.json) |
@@ -181,6 +188,16 @@ python src/plot_bidirectional.py
 ```
 
 入射波を与える非線形伝搬モデルは `python src/render_nonlinear.py` で計算し、`python src/verify_nonlinear.py --full` で検証します。このモデルでは唇による励振を線形共鳴器で求め、その波形を非線形伝搬の入力にします。双方向波動ガイドとCUDAソルバーでは、戻り波も時々刻々の音場から求めます。
+
+## E♭テナーホルンの音階を再生成する
+
+実音B♭2〜B♭5（記譜G3〜G6）をフォルテと強いアタックで計算します。最高4音は通常の演奏域を超えるため、高次の共鳴を使って音域を拡張しています。[モデルと形状データの出典](docs/ja/TENOR_HORN_MODEL.md)
+
+```sh
+python src/render_euphonium_ophicleide.py tenor_horn
+```
+
+WAVと各音の測定結果は `output/tenor_horn_axisymmetric/` に保存されます。
 
 ## モデルと形状
 

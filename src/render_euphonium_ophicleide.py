@@ -16,10 +16,11 @@ from render_tuba_scale import AUDIO_FS, GAP, MODEL, PITCH_RANGE, TRACE_FS, inspe
 from trumpet import C, RHO, ROOT, measure, np, signal
 
 HIGH_BRASS = ('flugelhorn','keyed_bugle')
-NAMES = ('euphonium','ophicleide','horn',*HIGH_BRASS)
-RANGES = dict(euphonium=(2,5),ophicleide=(1,4),horn=(1,5),flugelhorn=(3,6),keyed_bugle=(3,6))
+NAMES = ('euphonium','ophicleide','horn','tenor_horn',*HIGH_BRASS)
+RANGES = dict(euphonium=(2,5),ophicleide=(1,4),horn=(1,5),tenor_horn=(2,5),
+              flugelhorn=(3,6),keyed_bugle=(3,6))
 SELECTOR = dict(euphonium='valves',ophicleide='open_holes',horn='valves',
-                flugelhorn='valves',keyed_bugle='open_holes')
+                tenor_horn='valves',flugelhorn='valves',keyed_bugle='open_holes')
 HIGH_BRASS_PITCH_RANGE = dict(min_hz=46.,max_hz=2450.)
 RADIAL_STEP = .006
 START_PILOT_S = .44
