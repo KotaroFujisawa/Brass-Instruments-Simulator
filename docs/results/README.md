@@ -32,6 +32,7 @@
 | [Wick 5AL を使ったトロンボーン](trombone_5AL_Bb2_Bb5_measurements.json) | B♭2–B♭5 の各音の計算結果と、生成した WAV の独立した解析 |
 | [5AL トロンボーンの音量を上げたフォルテ](trombone_5AL_Bb2_Bb5_louder_f_measurements.json) | 詳細形状を使った5ALの標準音階を基準とした、音圧レベルと PCM レベルの比較 |
 | [5AL トロンボーンのアタックを強めた音階](trombone_5AL_Bb2_Bb5_stronger_f_measurements.json) | 発音時刻をそろえた区間と固定時刻の区間におけるアタックの比較、持続部のレベル、ピークを制限した試聴音源の測定値 |
+| [E♭テナーホルン（アルトホルン）](tenor_horn_verified_measurements.json) | 実音B♭2〜B♭5の22音、26.31秒。WAVの持続部における最大音程誤差は9.9セント、音圧が持続部の半分に達するまでの時間は中央値30 msです。 |
 | [Yamaha BB-67C4 を使ったBB♭チューバ](BBb_tuba_Bb1_Bb4_measurements.json) | B♭1–B♭4 の計算結果と PCM の独立した解析。発音のタイミングと発音初期の低音の変調を含みます。 |
 | [トランペットのテーパーとベルの比較](bell_comparison.json) | 以前のテーパー、細分化したテーパー、連成した管外放射モデルを比較した結果。[テーパーの図](../figures/trumpet_taper_refinement.png) |
 | [ベル境界の検証](bell_boundary_verification.json) | CUDA 計算のベル境界の圧力と、CPU で周波数領域から再構成した圧力の比較 |

@@ -39,6 +39,14 @@
     "duration_s": 26.31,
     "sha256": "0b603ff0a178cf4f315f888864d8c1c56d692d25f78151583a505b10b9cfc537"
   },
+  "tenor_horn_Bb2_Bb5_major_f_strong_attack.wav": {
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "bit_depth": 16,
+    "frames": 1262880,
+    "duration_s": 26.31,
+    "sha256": "1fd28d0520c09428194bf80a9e506cc9654bbee222bb13f00a743b934f22c792"
+  },
   "trombone_5AL_Bb2_Bb5_major_louder_f_strong_attack.wav": {
     "sample_rate_hz": 48000,
     "channels": 1,

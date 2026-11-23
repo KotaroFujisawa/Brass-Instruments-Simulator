@@ -23,6 +23,7 @@
 | [Conn 8H トロンボーンと Wick 5AL](trombone_5AL_Bb2_Bb5_major_f_strong_attack.wav) | B♭2–B♭5 | 26.31 秒 | `python src/render_trombone_detailed_scale.py` |
 | [5AL トロンボーンの音量を上げたフォルテ](trombone_5AL_Bb2_Bb5_major_louder_f_strong_attack.wav) | B♭2–B♭5 | 26.31 秒 | `python src/render_trombone_detailed_scale.py --louder` |
 | [5AL トロンボーンのアタックを強めた音階](trombone_5AL_Bb2_Bb5_major_stronger_f_strong_attack.wav) | B♭2–B♭5 | 26.31 秒 | `python src/render_trombone_detailed_scale.py --stronger` |
+| [E♭テナーホルン（アルトホルン）](tenor_horn_Bb2_Bb5_major_f_strong_attack.wav) | B♭2〜B♭5 | 26.31秒 | `python src/render_euphonium_ophicleide.py tenor_horn` |
 | [BB♭チューバと Yamaha BB-67C4](BBb_tuba_Bb1_Bb4_major_f_strong_attack.wav) | B♭1–B♭4 | 26.31 秒 | `python src/render_tuba_scale.py` |
 | [B♭管オフィクレイド](ophicleide_Bb1_Bb4_major_f_strong_attack.wav) | B♭1〜B♭4 | 26.31秒 | `python src/render_euphonium_ophicleide.py ophicleide` |
 

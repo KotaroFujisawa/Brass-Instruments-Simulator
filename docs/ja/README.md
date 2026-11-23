@@ -16,6 +16,7 @@
 - [Bach 5Cの形状比較とトランペットの3オクターブ音階](../trumpet_mouthpiece.md)
 - [トランペットのベル放射とテーパーの細分化](../trumpet_bell_exterior.md)
 - [Conn 8Hトロンボーンと吹奏圧・アタックの比較](TROMBONE_MODEL.md)
+- [E♭テナーホルン（アルトホルン）](TENOR_HORN_MODEL.md)
 - [BB♭コントラバス・チューバ](TUBA_MODEL.md)
 - [C管セルパンの管形状、運指と音程](SERPENT_MODEL.md)
 - [ユーフォニアムとB♭管オフィクレイド](EUPHONIUM_OPHICLEIDE_MODEL.md)

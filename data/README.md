@@ -8,6 +8,8 @@
 | `bach_5c_jackson_2025_fig2.csv` | JacksonとScavone（2025）の図2にあるBach 5Cの実測輪郭から読み取った軸方向距離と半径 |
 | `conn8h_fig4_22.csv` | 再構成したConn 8H管体の距離と半径。マウスピース入口から80 mmの位置に始まる |
 | `wick5al_calibrated.csv` | 寸法と音響特性を校正したDenis Wick 5ALの距離と半径 |
+| `tenor_horn_sax_eu4543_fig7_26.csv` | *The Science of Brass Instruments* の図7.26から読み取ったE♭テナー・サクソルン（EU4543）の管路に沿う距離と半径 |
+| `yamaha_ah38d4_reconstructed.csv` | Yamaha AH-38D4の公称リム内径とスロート径から再構成したマウスピース内面 |
 | `alexander_bb_tuba_reconstructed.csv` | AlexanderのC管からBB♭管に換算したチューバの管体。ソルバー内で軸方向寸法を0.936倍する前の形状 |
 | `yamaha_bb67c4_reconstructed.csv` | 寸法と容積の計測値から再構成したYamaha BB-67C4の内面形状 |
 | `serpent_bore_fig456.csv` | *The Science of Brass Instruments* の図4.56から読み取ったセルパンの管体 |
@@ -35,6 +37,7 @@
 | `performance_trombone_attack.json` | アタック時の吹奏圧を調整したトロンボーンの演奏設定 |
 | `performance_trombone_detailed_scale.json` | 5ALを使ったトロンボーンの3オクターブ音階の補正と高音域の設定 |
 | `performance_trombone_stronger_forte.json` | トロンボーンの `--stronger` 版に使う調律補正 |
+| `performance_tenor_horn.json` | E♭テナーホルンの実音B♭2〜B♭5の記譜音、運指、倍音次数、管長補正、唇と吹奏圧の設定 |
 | `performance_tuba.json` | B♭1〜B♭4のチューバの唇、吹奏圧、アタック、バルブ、管長補正 |
 | `performance_euphonium.json` | B♭2〜B♭5のユーフォニアムの唇、吹奏圧、4バルブの運指、管長補正 |
 | `performance_euphonium_pedal.json` | ユーフォニアムの4オクターブ版に追加するB♭1〜A2の7音の設定 |
@@ -51,6 +54,8 @@
 オフィクレイドの `open_holes` は開く側孔の番号を記録します。ダブルホルンの `side` は `F` または `Bb` です。`note` は実音、`written_note` はF調ホルンの記譜音です。形状を補った箇所や運指の根拠は各解説に記載しています。[ユーフォニアムとオフィクレイド](../docs/ja/EUPHONIUM_OPHICLEIDE_MODEL.md) · [ダブルホルン](../docs/ja/DOUBLE_HORN_MODEL.md)
 
 フリューゲルホルンの `valves` は使用するバルブ番号です。キー付きビューグルの `open_holes` は実際に開く指穴の番号で、ベル側から1〜7番です。第1孔は通常開で、キーを操作して閉じます。B♭5を超える7音の運指は計算上の拡張です。[フリューゲルホルンとキー付きビューグルの形状・運指](../docs/ja/FLUGELHORN_KEYED_BUGLE_MODEL.md)
+
+E♭テナーホルンの `written_note` は実音より長6度高い記譜音で、`valves` は押すピストンの番号です。[管体の形状と運指](../docs/ja/TENOR_HORN_MODEL.md)
 
 管体の断面は図から読み取って近似しました。マウスピースの形状は、資料にある輪郭、長さ、容積、共鳴周波数を使って決めています。演奏設定は、それぞれのモデルで目標音を発音するように調整しています。
 
