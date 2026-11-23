@@ -22,6 +22,8 @@ https://github.com/user-attachments/assets/f14650f5-a03d-4423-8e90-08169da3e7cf
 
 #### E♭テナーホルン（実音B♭2〜B♭5）
 
+https://github.com/user-attachments/assets/ababc5de-ae98-4707-93d2-05f339e690c6
+
 [WAVを開く](samples/tenor_horn_Bb2_Bb5_major_f_strong_attack.wav) · [モデルの説明](docs/ja/TENOR_HORN_MODEL.md)
 
 #### BB♭チューバ（Yamaha BB-67C4、実音B♭1〜B♭4）
