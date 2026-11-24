@@ -1,10 +1,22 @@
 # 10楽器の発音範囲の比較
 
-トランペット、フリューゲルホルン、トロンボーン、F／B♭ダブルホルン、ユーフォニアム、B♭管オフィクレイド、BB♭チューバ、E♭テナーホルン、B♭キー付きビューグル、C管セルパンの発音範囲を比較します。実音B♭3とC4は全10楽器で比較できます。各音の図はすべて横軸が唇の固有振動数35〜1,300 Hz、縦軸が定常吹奏圧0〜23 kPaです。緑は目標音程の±75セント以内で持続した点、白は未計算、赤は計算や判定ができなかった点です。
+トランペット、フリューゲルホルン、トロンボーン、F／B♭ダブルホルン、ユーフォニアム、B♭管オフィクレイド、BB♭チューバ、E♭テナーホルン、B♭キー付きビューグル、C管セルパンの発音範囲を比較します。実音B♭3とC4は全10楽器で比較できます。各音の発音判定図は、唇の固有振動数35〜1,300 Hzの線形軸と、40〜1,249.31888 Hzの対数軸で掲載しています。どちらも縦軸は定常吹奏圧0〜23 kPaです。安定発振した96,246条件について、発振周波数を縦軸にした図も掲載しています。
 
 ![実音を揃えた10楽器の比較](../figures/playability/allbrass_playability_common_pitch.png)
 
-![C4の発音範囲を比較](../figures/playability/allbrass_playability_c4_maps.png)
+![C4の発音判定を線形軸で比較](../figures/playability/allbrass_playability_c4_maps.png)
+
+## 図の見方
+
+各音の発音判定図と発振周波数図では、横軸は唇モデルに設定した固有振動数です。対数軸の上端は全試行の最高設定値1,249.31888 Hzです。100→200 Hzと200→400 Hzが同じ間隔になるので、発音できる固有振動数の幅を、音域をまたいで同じセント幅で比較できます。対数軸の縦の破線は、唇の固有振動数と目標音の周波数が等しい位置です。C4では261.63 Hzです。
+
+発音判定図では、緑が目標音から±75セント以内で持続した条件、白が未計算、赤が計算または判定ができなかった条件です。同じ吹奏圧で緑が連続する横幅を見ると、その圧力でC4に当たる唇の設定範囲を比べられます。 [実音C4の発音判定（対数軸）](../figures/playability/log/allbrass_c4_pressure_target_line.png)
+
+発振周波数図の縦軸は、カップ内圧の持続部から推定した発振周波数です。1点は安定発振した1試行です。●は目標の±75セント以内（C4なら約250.5〜273.2 Hz）、▲はその範囲外です。色は吹奏圧を示し、青いほど低く、黄色いほど高くなります。点のない場所には、未計算の範囲や安定発振が確認できなかった条件が含まれます。C4の10楽器比較では縦軸を0〜450 Hzに統一し、楽器別の図では各音の発振範囲に合わせています。
+
+![実音C4の発振周波数を10楽器で比較](../figures/playability/log/allbrass_c4_observed_frequency.png)
+
+E♭テナーホルンでC4を狙い、唇の固有振動数を287.79 Hzに固定した例では、3.0 kPaで131.16 Hz（▲）、3.5 kPaで262.19 Hz（●）が持続しました。同じ唇の設定でも、吹奏圧の違いで発振周波数が約1オクターブ変わった例です。 [E♭テナーホルンC4の発音判定と発振周波数](../figures/playability/log/tenor_horn_c4_pressure_and_frequency.png)
 
 ## 計算条件と形状
 
@@ -77,25 +89,28 @@
 
 ## 各楽器の共通軸の図
 
-- [トランペットの全15音](../figures/playability/trumpet_playability_common_axes.png)
-- [フリューゲルホルンの全15音](../figures/playability/flugelhorn_playability_common_axes.png)
-- [トロンボーンの全15音](../figures/playability/trombone_playability_common_axes.png)
-- [F／B♭ダブルホルンの全22音](../figures/playability/horn_playability_common_axes.png)
-- [ユーフォニアムの全22音](../figures/playability/euphonium_playability_common_axes.png)
-- [B♭管オフィクレイドの全22音](../figures/playability/ophicleide_playability_common_axes.png)
-- [BB♭チューバの全22音](../figures/playability/tuba_playability_common_axes.png)
-- [E♭テナーホルンの全22音](../figures/playability/tenor_horn_playability_common_axes.png)
-- [B♭キー付きビューグルの全15音](../figures/playability/keyed_bugle_playability_common_axes.png)
-- [C管セルパンの全17音](../figures/playability/serpent_playability_common_axes.png)
+| 楽器 | 音数 | 発音判定（線形） | 発音判定（対数） | 発振周波数（対数横軸） |
+|---|---:|---|---|---|
+| トランペット | 15 | [線形軸](../figures/playability/trumpet_playability_common_axes.png) | [対数軸](../figures/playability/log/trumpet_pressure_target_line.png) | [発振周波数](../figures/playability/log/trumpet_observed_frequency.png) |
+| フリューゲルホルン | 15 | [線形軸](../figures/playability/flugelhorn_playability_common_axes.png) | [対数軸](../figures/playability/log/flugelhorn_pressure_target_line.png) | [発振周波数](../figures/playability/log/flugelhorn_observed_frequency.png) |
+| トロンボーン | 15 | [線形軸](../figures/playability/trombone_playability_common_axes.png) | [対数軸](../figures/playability/log/trombone_pressure_target_line.png) | [発振周波数](../figures/playability/log/trombone_observed_frequency.png) |
+| F／B♭ダブルホルン | 22 | [線形軸](../figures/playability/horn_playability_common_axes.png) | [対数軸](../figures/playability/log/horn_pressure_target_line.png) | [発振周波数](../figures/playability/log/horn_observed_frequency.png) |
+| ユーフォニアム | 22 | [線形軸](../figures/playability/euphonium_playability_common_axes.png) | [対数軸](../figures/playability/log/euphonium_pressure_target_line.png) | [発振周波数](../figures/playability/log/euphonium_observed_frequency.png) |
+| B♭管オフィクレイド | 22 | [線形軸](../figures/playability/ophicleide_playability_common_axes.png) | [対数軸](../figures/playability/log/ophicleide_pressure_target_line.png) | [発振周波数](../figures/playability/log/ophicleide_observed_frequency.png) |
+| BB♭チューバ | 22 | [線形軸](../figures/playability/tuba_playability_common_axes.png) | [対数軸](../figures/playability/log/tuba_pressure_target_line.png) | [発振周波数](../figures/playability/log/tuba_observed_frequency.png) |
+| E♭テナーホルン | 22 | [線形軸](../figures/playability/tenor_horn_playability_common_axes.png) | [対数軸](../figures/playability/log/tenor_horn_pressure_target_line.png) | [発振周波数](../figures/playability/log/tenor_horn_observed_frequency.png) |
+| B♭キー付きビューグル | 15 | [線形軸](../figures/playability/keyed_bugle_playability_common_axes.png) | [対数軸](../figures/playability/log/keyed_bugle_pressure_target_line.png) | [発振周波数](../figures/playability/log/keyed_bugle_observed_frequency.png) |
+| C管セルパン | 17 | [線形軸](../figures/playability/serpent_playability_common_axes.png) | [対数軸](../figures/playability/log/serpent_pressure_target_line.png) | [発振周波数](../figures/playability/log/serpent_observed_frequency.png) |
 
 ## 公開データと再現手順
 
 公開データには、10楽器187音の計143,616条件について、唇の固有振動数、吹奏圧、判定、観測した周波数と音程差、発音時刻、カップ内の音圧と周期性を収録しています。JSONには音ごとの集計、代表点の軸対称非線形計算、演奏設定を変えた比較が入っています。 [全試行のCSV（gzip圧縮）](../results/playability/allbrass_playability_trials.csv.gz) · [集計と非線形照合のJSON](../results/playability/allbrass_playability_results.json)
 
-公開済みの結果から図を描き直す場合は、リポジトリのルートで次のコマンドを実行します。この手順にはGPUを必要としません。
+公開済みの結果から図を描き直す場合は、リポジトリのルートで次のコマンドを実行します。1行目は線形軸の図、2行目は対数軸の発音判定図と発振周波数図を生成します。この手順にはGPUを必要としません。
 
 ```sh
 python src/plot_brass_playability.py --published --dest output/playability_figures
+python src/plot_brass_playability.py --published --xscale log --dest output/playability_log
 ```
 
 日本語フォントが自動で見つからない場合は、`--font` にNoto Sans CJKなどのフォントファイルを指定します。

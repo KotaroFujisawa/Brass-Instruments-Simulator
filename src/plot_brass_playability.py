@@ -1,4 +1,4 @@
-"""Draw the ten published instruments on common pressure and lip-frequency axes."""
+"""Draw brass playability maps and sustained-oscillation frequency plots."""
 
 import argparse
 from collections import Counter, defaultdict
@@ -27,6 +27,7 @@ INSTRUMENTS = (
     ('serpent', 'C管セルパン', 17),
 )
 LIMITS = ((35., 1300.), (0., 23.))
+LOG_MIN_HZ = 40.
 X_TICK_HZ = 200.
 COMPARE = ('F3', 'Bb3', 'C4')
 SUBTITLE = ('緑は持続部の音程が目標から±75セント以内。'
@@ -221,14 +222,14 @@ def draw_summary(data, path):
     save(fig, path)
 
 
-def draw_c4_maps(datasets, path):
+def draw_c4_maps(datasets, path, *, limits=LIMITS, subtitle=SUBTITLE, log_hz=False):
     note = 'C4'
     plt = mapplot.plt
     fig, axes = plt.subplots(2, 5, figsize=(15.75, 7.0), sharex=True, sharey=True)
     fig.subplots_adjust(left=.068, right=.984, top=.743, bottom=.174, wspace=.15, hspace=.59)
     fig.text(.068, .948, 'C4の発音範囲を10楽器で比較',
              fontsize=22, fontweight='bold', va='top')
-    fig.text(.068, .867, SUBTITLE, fontsize=10.5, color=mapplot.MUTED, va='top')
+    fig.text(.068, .867, subtitle, fontsize=10.5, color=mapplot.MUTED, va='top')
     handles = [mapplot.Patch(facecolor=color, edgecolor='none', label=title)
                for title, color in mapplot.OUTCOMES.values()]
     handles.append(mapplot.Patch(facecolor='#FFFFFF', edgecolor=mapplot.RULE, label='未計算'))
@@ -241,17 +242,23 @@ def draw_c4_maps(datasets, path):
             x, y, values = mapplot.panel_data(note, rows)
             axis.pcolormesh(x, y, values, cmap=mapplot.COLORS, norm=mapplot.NORM,
                             shading='flat', edgecolors='none', antialiased=False)
-        axis.set_xlim(*LIMITS[0])
-        axis.set_ylim(*LIMITS[1])
+        if log_hz:
+            mapplot.set_log_ticks(axis)
+        axis.set_xlim(*limits[0])
+        axis.set_ylim(*limits[1])
+        if log_hz and rows:
+            mapplot.draw_target_marker(axis, rows[0]['target_hz'])
         axis.set_axisbelow(True)
         axis.grid(color='#E9EDF2', linewidth=.6)
-        axis.xaxis.set_major_locator(mapplot.MultipleLocator(X_TICK_HZ))
+        if not log_hz:
+            axis.xaxis.set_major_locator(mapplot.MultipleLocator(X_TICK_HZ))
         axis.yaxis.set_major_locator(mapplot.MultipleLocator(5))
         axis.xaxis.set_major_formatter(mapplot.StrMethodFormatter('{x:.0f}'))
         axis.tick_params(axis='both', labelsize=9.2, length=3., pad=3.5)
         axis.tick_params(axis='x', labelbottom=True)
         axis.set_title(title, loc='left', fontsize=10.6, pad=6, fontweight='bold')
-    fig.supxlabel('唇の固有振動数（Hz）', y=.103, fontsize=12)
+    xlabel = '唇の固有振動数（Hz、対数軸）' if log_hz else '唇の固有振動数（Hz）'
+    fig.supxlabel(xlabel, y=.103, fontsize=12)
     fig.supylabel('定常吹奏圧（kPa）', x=.012, fontsize=12)
     fig.text(.068, .034, '実音C4（約262 Hz）。白は未計算。', fontsize=9.3, color=mapplot.MUTED)
     save(fig, path)
@@ -270,6 +277,9 @@ def load_published():
                 'lip_frequency_hz': float(raw['lip_frequency_hz']),
                 'blowing_pressure_pa': float(raw['blowing_pressure_pa']),
                 'outcome': raw['outcome'],
+                'target_hz': float(raw['target_hz']),
+                'audio_frequency_hz': (float(raw['audio_frequency_hz'])
+                                       if raw['audio_frequency_hz'] else None),
             })
     for key, _, expected in INSTRUMENTS:
         check_grid(datasets[key], expected, key)
@@ -288,17 +298,46 @@ def load_sweeps(input_root):
     return datasets
 
 
+def draw_log_plots(datasets, dest, *, archived=False):
+    import playability_pitch
+
+    lips = [row['lip_frequency_hz'] for payload in datasets.values() for row in payload['rows']]
+    if any(not math.isfinite(hz) or hz < LOG_MIN_HZ for hz in lips):
+        raise ValueError(f'The shared log view requires measured lip frequencies of at least {LOG_MIN_HZ:g} Hz.')
+    xlim = (LOG_MIN_HZ, max(lips))
+    limits = (xlim, LIMITS[1])
+    subtitle = ('破線は目標音の周波数。緑は目標の±75セント以内で持続。'
+                f'横軸{xlim[0]:g}〜{xlim[1]:,.2f} Hz（対数）。')
+    for key, title, _ in INSTRUMENTS:
+        payload = datasets[key]
+        mapplot.draw(payload, payload['notes'], dest / f'{key}_pressure_target_line',
+                     5, subtitle, shared_axes=True, limits=limits, log_hz=True,
+                     title=f'{title}の吹奏圧と発音範囲', panel_details=panel_details(key, payload))
+        print(key, len(payload['notes']), len(payload['rows']), flush=True)
+    draw_c4_maps(datasets, dest / 'allbrass_c4_pressure_target_line',
+                 limits=limits, subtitle=subtitle, log_hz=True)
+    playability_pitch.draw_all(datasets, INSTRUMENTS, dest, xlim)
+    if archived:
+        playability_pitch.draw_tenor_example(datasets, dest, limits)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     source = parser.add_mutually_exclusive_group()
     source.add_argument('--published', action='store_true', help='Use the results committed with the repository.')
     source.add_argument('--input-root', type=Path, help='Use freshly calculated sweep JSON under this path.')
+    parser.add_argument('--xscale', choices=('linear', 'log'), default='linear',
+                        help='Use log lip frequencies and add measured oscillation-frequency plots.')
     parser.add_argument('--dest', type=Path, default=ROOT / 'output' / 'playability_figures')
     parser.add_argument('--font', type=Path, help='Path to a Japanese font supported by Matplotlib.')
     args = parser.parse_args()
     data = load_published() if args.published else load_sweeps(args.input_root or ROOT / 'output')
     mapplot.set_style(args.font)
     args.dest.mkdir(parents=True, exist_ok=True)
+    if args.xscale == 'log':
+        draw_log_plots(data, args.dest, archived=args.published)
+        return
+
     for key, title, _ in INSTRUMENTS:
         payload = data[key]
         mapplot.draw(payload, payload['notes'], args.dest / f'{key}_playability_common_axes',

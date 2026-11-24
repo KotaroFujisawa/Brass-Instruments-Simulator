@@ -104,7 +104,9 @@ python src/render_serpent.py --preset data/performance_serpent_tuned.json
 
 ## 10楽器の発音範囲
 
-10楽器187音について、唇の固有振動数と吹奏圧を組み合わせた143,616条件で、目標音程の近くで振動が持続する範囲を調べました。すべての楽器で比較できる実音B♭3とC4について、発音した最低格子圧と、12 kPaで発音が連続する唇の固有振動数の範囲を示しています。 [比較レポート・全音の図・再現手順](docs/ja/PLAYABILITY.md) · [実音をそろえた比較図](docs/figures/playability/allbrass_playability_common_pitch.png)
+10楽器187音について、唇の固有振動数と吹奏圧を組み合わせた143,616条件で、目標音程の近くで振動が持続する範囲を調べました。発音判定図は線形軸と対数軸の両方を掲載しています。発振周波数図では、目標音から外れて安定した発振も含め、持続部のカップ内圧から推定した周波数を比較できます。 [全音の図・読み方・再現手順](docs/ja/PLAYABILITY.md)
+
+[C4の発音判定（線形軸）](docs/figures/playability/allbrass_playability_c4_maps.png) · [C4の発音判定（対数軸）](docs/figures/playability/log/allbrass_c4_pressure_target_line.png) · [C4の発振周波数（対数軸）](docs/figures/playability/log/allbrass_c4_observed_frequency.png) · [B♭3とC4の最初の成功圧と発音幅](docs/figures/playability/allbrass_playability_common_pitch.png)
 
 ## インストール
 
