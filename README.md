@@ -102,6 +102,10 @@ python src/render_serpent.py --preset data/performance_serpent_tuned.json
 
 [モデルと実行手順](docs/ja/SERPENT_MODEL.md) · [共鳴と音程のグラフ](docs/figures/serpent_intonation.png) · [調整前とE3の測定結果](docs/results/serpent_measurements.json) · [調整後の測定結果](docs/results/serpent_tuned_measurements.json)
 
+## 10楽器の発音範囲
+
+10楽器187音について、唇の固有振動数と吹奏圧を組み合わせた143,616条件で、目標音程の近くで振動が持続する範囲を調べました。すべての楽器で比較できる実音B♭3とC4について、発音した最低格子圧と、12 kPaで発音が連続する唇の固有振動数の範囲を示しています。 [比較レポート・全音の図・再現手順](docs/ja/PLAYABILITY.md) · [実音をそろえた比較図](docs/figures/playability/allbrass_playability_common_pitch.png)
+
 ## インストール
 
 開発にはPython 3.12を使用しました。NumPy、SciPy、Numba、Matplotlibが必要です。リポジトリのルートからコマンドを実行します。

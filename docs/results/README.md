@@ -4,6 +4,10 @@
 
 公開した音声の計算値と解析結果です。音声生成や検証のスクリプトを再実行すると、`output/` に新しいレポートが出力されます。ユーフォニアム、オフィクレイド、ダブルホルン、フリューゲルホルン、キー付きビューグルのレポートでは、`render` に生成時の測定値を、`independent_wav_check` に書き出したWAVを独立に解析した結果を記録しています。`filename` とSHA-256で [公開ファイルの一覧](../../samples/manifest.json) と照合できます。
 
+## 10楽器の発音範囲
+
+10楽器187音で、吹奏圧と唇の固有振動数を変えた計143,616条件の判定を収録しています。 [比較レポートと図](../ja/PLAYABILITY.md) · [全試行のCSV（gzip圧縮）](playability/allbrass_playability_trials.csv.gz) · [集計と非線形照合のJSON](playability/allbrass_playability_results.json)
+
 ## ユーフォニアム・オフィクレイド・ダブルホルン
 
 | レポート | 実音域 | 音数 | 長さ | 持続部の最大音程差 |
