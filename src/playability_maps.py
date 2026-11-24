@@ -16,7 +16,9 @@ from matplotlib import font_manager
 from matplotlib.colors import BoundaryNorm, ListedColormap
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
-from matplotlib.ticker import MaxNLocator, MultipleLocator, StrMethodFormatter
+from matplotlib.ticker import (
+    FixedLocator, LogLocator, MaxNLocator, MultipleLocator, NullFormatter, StrMethodFormatter,
+)
 import numpy as np
 
 
@@ -93,9 +95,22 @@ def panel_data(note, trials):
     return borders(np.array(frequencies)), borders(np.array(pressures)), values
 
 
+def set_log_ticks(axis):
+    axis.set_xscale('log')
+    axis.xaxis.set_major_locator(FixedLocator([40, 60, 100, 200, 400, 800, 1200]))
+    axis.xaxis.set_major_formatter(StrMethodFormatter('{x:g}'))
+    axis.xaxis.set_minor_locator(LogLocator(base=10, subs=range(2, 10)))
+    axis.xaxis.set_minor_formatter(NullFormatter())
+
+
+def draw_target_marker(axis, target_hz):
+    axis.axvline(target_hz, color=TEXT, linestyle=(0, (3.3, 2.7)), linewidth=.9,
+                 alpha=.92, zorder=5)
+
+
 def draw(payload, notes, prefix, panel_columns, subtitle, validation=(), *,
          shared_axes=False, limits=None, title='トランペットの発音範囲',
-         panel_details=None, x_tick_hz=200):
+         panel_details=None, x_tick_hz=200, log_hz=False):
     selected = {note: [] for note in notes}
     for trial in payload['rows']:
         if trial['note'] in selected:
@@ -110,9 +125,15 @@ def draw(payload, notes, prefix, panel_columns, subtitle, validation=(), *,
         ymin, ymax = 0., math.ceil(ymax)
         if limits is not None:
             (xmin, xmax), (ymin, ymax) = limits
-            if not all(xmin <= x[0] < x[-1] <= xmax and ymin <= y[0] < y[-1] <= ymax
-                       for x, y, _ in panels.values()):
-                raise ValueError('A measured cell would be clipped by the shared limits.')
+            # The final measured center sits on the right edge in the log view.
+            if log_hz:
+                if not all(xmin <= row['lip_frequency_hz'] <= xmax
+                           for rows in selected.values() for row in rows):
+                    raise ValueError('A measured frequency is outside the shared log limits.')
+            elif not all(xmin <= x[0] < x[-1] <= xmax for x, _, _ in panels.values()):
+                raise ValueError('A measured cell is outside the shared frequency limits.')
+            if not all(ymin <= y[0] < y[-1] <= ymax for _, y, _ in panels.values()):
+                raise ValueError('A measured cell is outside the shared pressure limits.')
     count = len(notes)
     nrows = math.ceil(count / panel_columns)
     subsequence = count == 3
@@ -144,8 +165,13 @@ def draw(payload, notes, prefix, panel_columns, subtitle, validation=(), *,
             else:
                 axis.scatter(xs,ys,s=14,marker=mark,color='white',linewidth=2.7,zorder=3)
                 axis.scatter(xs,ys,s=14,marker=mark,color=TEXT,linewidth=1.15,zorder=4)
+        if log_hz:
+            set_log_ticks(axis)
         axis.set_xlim((xmin, xmax) if shared_axes else (x[0], x[-1]))
         axis.set_ylim(ymin, ymax)
+        if log_hz:
+            target_hz = selected[note][0]['target_hz']
+            draw_target_marker(axis, target_hz)
         axis.set_facecolor('white')
         counted = Counter(row['outcome'] for row in selected[note])
         detail = (panel_details or {}).get(note)
@@ -158,7 +184,8 @@ def draw(payload, notes, prefix, panel_columns, subtitle, validation=(), *,
             axis.text(0., 1.042, detail, transform=axis.transAxes,
                       fontsize=8.4, color=MUTED, ha='left', va='bottom')
         if shared_axes:
-            axis.xaxis.set_major_locator(MultipleLocator(x_tick_hz))
+            if not log_hz:
+                axis.xaxis.set_major_locator(MultipleLocator(x_tick_hz))
             axis.yaxis.set_major_locator(MultipleLocator(5))
             axis.tick_params(axis='x', labelbottom=True)
             axis.set_axisbelow(True)
@@ -174,7 +201,8 @@ def draw(payload, notes, prefix, panel_columns, subtitle, validation=(), *,
     for axis in list(axs.flat)[count:]:
         axis.set_visible(False)
 
-    fig.supxlabel('唇の固有振動数（Hz）', y=.114 if subsequence else .068, fontsize=12.2)
+    xlabel = '唇の固有振動数（Hz、対数軸）' if log_hz else '唇の固有振動数（Hz）'
+    fig.supxlabel(xlabel, y=.114 if subsequence else .068, fontsize=12.2)
     fig.supylabel('定常吹奏圧（kPa）', x=.012, fontsize=12.2)
     states_present = {row['outcome'] for rows in selected.values() for row in rows}
     handles = [
